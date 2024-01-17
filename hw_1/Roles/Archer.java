@@ -1,16 +1,14 @@
 package oop.hw_1.Roles;
 
 import oop.hw_1.Hero;
-import oop.hw_1.Interfaces.Shoot;
-import oop.hw_1.Interfaces.Step;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 
-abstract public class Archer extends Hero implements Shoot, Step {
+abstract public class Archer extends Hero{
     static private Random rand = new Random();
-    private int maxArrows;
+    private int maxArrows = 50;
 
     public Archer(int health, int healthMax, int armor, int[] damage, String nameHero, int posX, int posY) {
         super(health, healthMax, armor, damage, nameHero, posX, posY);
@@ -29,19 +27,38 @@ abstract public class Archer extends Hero implements Shoot, Step {
 
     }
 
-    public void receiveAmmo(int amount){
+    @Override
+    protected boolean shoot() {
+        return false;
+    }
+
+    public void receiveArrows(int amount){
         this.maxArrows += amount;
+    }
+
+    public int getAArrows(){
+        return maxArrows;
     }
 
 
     @Override
-    public void step(ArrayList<Hero> enemys) {
-        if(this.health < 1) return;
+    public void step(ArrayList<Hero> allies, ArrayList<Hero> enemys) {
+        if(this.isDead()) return;
         Hero other = nearestEnemy(enemys);
-        if (shoot(other)) {
-            receiveAmmo(10);
+        if (!shoot(other)) {
+            receiveArrows(4);
         };
 
 
+    }
+    @Override
+    public String toString() {
+        return super.toString() + "; Arrows: " + (Integer)(getAArrows()/10);
+    }
+
+
+    @Override
+    public String getTape() {
+        return "Archer";
     }
 }

@@ -4,8 +4,6 @@ import oop.hw_1.Hero;
 
 import java.util.ArrayList;
 
-public interface Step {
-    void step(ArrayList<Hero> enemys);
-
-
+public abstract interface Step {
+    void step(ArrayList<Hero> allies, ArrayList<Hero> enemys);
 }

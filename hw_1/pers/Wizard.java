@@ -1,28 +1,22 @@
 package oop.hw_1.pers;
 
-import oop.hw_1.Hero;
 import oop.hw_1.Roles.Magee;
 
 public class Wizard extends Magee {
     public Wizard(String nameHero, int posX, int posY) {
-        super(50, 50, 1, new int[]{-35, -30}, nameHero, posX, posY);
+        super(50, 50, 1, new int[]{15, 29}, nameHero, posX, posY);
 //        rangeMaxDamage = 4;
     }
 
 //    protected  int rangeMaxDamage;
 
 
-
-
     @Override
     public String toString() {
-        return ("Колдун: " + nameHero + ", здоровье: " + health + "/" + healthMax + ", броня: " + armor);
+//        return ("Колдун: " + nameHero + ", здоровье: " + health + "/" + healthMax + ", броня: " + armor);
+        return ("Wizard: " + super.toString());
     }
 
-    @Override
-    public boolean shoot(Hero other) {
-        return false;
-    }
 
 
 }

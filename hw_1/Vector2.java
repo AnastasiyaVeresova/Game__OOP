@@ -1,5 +1,7 @@
 package oop.hw_1;
 
+import java.util.ArrayList;
+
 public class Vector2 {
     int posX, posY;
 
@@ -9,6 +11,44 @@ public class Vector2 {
         this.posY = posY;
 
     }
+
+    public int getX() {
+        return posX;
+    }
+
+    public int getY() {
+        return posY;
+    }
+
+    public boolean longestAxis(Vector2 posEnemy) {
+        return Math.abs(posEnemy.posY - posY) > Math.abs(posEnemy.posX - posX);
+    }
+
+    public void moveX(Vector2 posEnemy, ArrayList<Hero> allies, boolean failed) {
+
+        int delta = posEnemy.getX() - this.getX() < 0? -1:1;
+        for (Hero h : allies) {
+            if (h.getLocation().getY() == this.getY() && h.getLocation().getX() == this.getX() + delta) {
+                if(failed) return;
+                moveY(posEnemy, allies, true);
+                return;
+            }
+        }
+        this.posX += delta;
+    }
+
+    public void moveY(Vector2 posEnemy, ArrayList<Hero> allies, boolean failed) {
+        int delta = posEnemy.getY() - this.getY() < 0? -1:1;
+        for (Hero h : allies) {
+            if (h.getLocation().getY() == this.getY() && h.getLocation().getX() == this.getX() + delta) {
+                if(failed) return;
+                moveY(posEnemy, allies, true);
+                return;
+            }
+        }
+        this.posY += delta;
+    }
+
 
     @Override
     public String toString() {

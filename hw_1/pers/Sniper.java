@@ -12,6 +12,9 @@ public class Sniper extends Archer {
 
     @Override
     public String toString() {
-        return ("Снайпер: " + nameHero + ", здоровье: " + health + "/" + healthMax + ", броня: " + armor);
+//        return ("Снайпер: " + nameHero + ", здоровье: " + health + "/" + healthMax + ", броня: " + armor);
+        return ("Sniper: " + super.toString());
     }
+
+
 }

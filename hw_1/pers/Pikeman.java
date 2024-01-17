@@ -1,6 +1,5 @@
 package oop.hw_1.pers;
 
-import oop.hw_1.Hero;
 import oop.hw_1.Roles.Melee;
 
 public class Pikeman extends Melee {
@@ -12,14 +11,8 @@ public class Pikeman extends Melee {
 
     @Override
     public String toString() {
-        return ("Копейщик: " + nameHero + ", здоровье: " + health + "/" + healthMax + ", броня: " + armor);
-//        return ("Копейщик: " + super.toString());
-    }
-
-
-    @Override
-    public boolean shoot(Hero other) {
-        return false;
+//        return ("Копейщик: " + nameHero + ", здоровье: " + health + "/" + healthMax + ", броня: " + armor);
+        return ("Pikeman: " + super.toString());
     }
 
 

@@ -15,6 +15,6 @@ public class Crossbower extends Archer {
 
     @Override
     public String toString() {
-        return "Арбалетчик: " + nameHero + ", здоровье: " + health + "/" + healthMax + ", броня: " + armor + " (" + position + "), " + minDist;
+        return ("Crossbower: " + super.toString());
     }
 }

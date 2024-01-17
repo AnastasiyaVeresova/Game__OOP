@@ -1,6 +1,5 @@
 package oop.hw_1.pers;
 
-import oop.hw_1.Hero;
 import oop.hw_1.Roles.Magee;
 
 public class Monk extends Magee {
@@ -12,13 +11,11 @@ public class Monk extends Magee {
 //    protected  int rangeMaxDamage;
     @Override
     public String toString() {
-        return ("Монах: " + nameHero + ", здоровье: " + health + "/" + healthMax + ", броня: " + armor);
+//        return ("Монах: " + nameHero + ", здоровье: " + health + "/" + healthMax + ", броня: " + armor);
+        return ("Monk: " + super.toString());
     }
 
-    @Override
-    public boolean shoot(Hero other) {
-        return false;
-    }
+
 
 
 }

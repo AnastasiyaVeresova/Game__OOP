@@ -10,4 +10,20 @@ abstract public class Magee extends Hero {
         super(health, healthMax, armor, damage, nameHero, posX, posY);
         initiative = 1;
     }
+    @Override
+    public String getTape() {
+        return "Magee";
+    }
+
+    @Override
+    protected boolean shoot() {
+        return false;
+    }
+
+    @Override
+    public boolean shoot(Hero other) {
+        return false;
+    }
+
+
 }

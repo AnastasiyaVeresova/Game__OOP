@@ -16,7 +16,12 @@ public class Peasant extends Hero {
 
     @Override
     public String toString() {
-        return ("Крестьянин: " + nameHero + ", здоровье: " + health + "/" + healthMax + ", броня: " + armor);
+        return ("Крестьянин: "  + super.toString());
+    }
+
+    @Override
+    protected boolean shoot() {
+        return false;
     }
 
     @Override
@@ -25,4 +30,8 @@ public class Peasant extends Hero {
     }
 
 
+    @Override
+    public String getTape() {
+        return ("Peasant: " + super.toString());
+    }
 }

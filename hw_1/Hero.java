@@ -1,12 +1,9 @@
 package oop.hw_1;
 
-import oop.hw_1.Interfaces.Shoot;
-import oop.hw_1.Interfaces.Step;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
-public abstract class Hero implements Shoot, Step {
+public abstract class Hero {
     protected int health, healthMax, armor, initiative;
     protected Vector2 position;
 
@@ -21,6 +18,10 @@ public abstract class Hero implements Shoot, Step {
         this.damage = damage;
         this.nameHero = nameHero;
         this.position = new Vector2(posX, posY);
+    }
+
+    public Vector2 getLocation() {
+        return this.position;
     }
 
     public void printEnemyDistance(ArrayList<Hero> enemys) {
@@ -42,15 +43,46 @@ public abstract class Hero implements Shoot, Step {
         return minDist;
     }
 
+//    public Hero nearestEnemy(ArrayList<Hero> enemys) {
+//        float minDistance = this.position.rangeEnemy(enemys.get(0).getLocation());
+//        Hero hero = enemys.get(0);
+//        for (int i = 0; i < enemys.size(); i++) {
+//            if (this.position.rangeEnemy(enemys.get(i).position) < this.position.rangeEnemy(hero.position)) {
+//                hero = enemys.get(i);
+//            }
+//        }
+//        return hero;
+//    }
+
+
     public Hero nearestEnemy(ArrayList<Hero> enemys) {
+        float minDistance = this.position.rangeEnemy(enemys.get(0).getLocation());
         Hero hero = enemys.get(0);
-        for (int i = 0; i < enemys.size(); i++) {
-            if (this.position.rangeEnemy(enemys.get(i).position) < this.position.rangeEnemy(hero.position)) {
+        for(int i = 1; i< enemys.size();i++)
+        {
+            float distance = enemys.get(i).getLocation().rangeEnemy(this.getLocation());
+            if (distance < minDistance && enemys.get(i).isDead()){
+                minDistance = distance;
                 hero = enemys.get(i);
             }
         }
         return hero;
     }
+
+    @Override
+    public String toString() {
+//        return nameHero + "; здоровье: " + health + "/" + healthMax + "; броня: " + armor +"; X:" + this.getLocation().getX() + ", Y:" + this.getLocation().getY();
+        return nameHero + "; здоровье: " + health + "/" + healthMax + "; броня: " + armor +"; X:" + this.getLocation().getX() + ", Y:" + this.getLocation().getY();
+
+    }
+
+    public String getName() {
+        return this.nameHero;
+    }
+
+    protected abstract boolean shoot();
+
+    public abstract String getTape();
 
     public void receiveDamage(int damage) {
         this.health -= (damage - this.armor);
@@ -65,14 +97,22 @@ public abstract class Hero implements Shoot, Step {
         this.position.posY = -11;
     }
 
+    public boolean isDead() {
+        return this.health < 1;
+    }
+
 
     public int getInitiative() {
         return initiative;
     }
 
-    public void step(ArrayList<Hero> heroesWhite) {
+    public abstract boolean shoot(Hero other);
+
+    public void step(ArrayList<Hero> allies, ArrayList<Hero> enemys) {
         System.out.println("Not Implemented");
     }
+
+
 
 
 

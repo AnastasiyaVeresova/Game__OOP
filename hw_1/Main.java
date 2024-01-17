@@ -104,15 +104,17 @@ public class Main {
 
         heroesWhite.forEach(n -> System.out.println(n.toString()));
         System.out.println("******************************");
-        heroesBlack.forEach(n -> n.printEnemyDistance(heroesWhite));
-        heroesBlack.forEach(n -> n.step(heroesWhite));
-        heroesWhite.forEach(n -> n.step(heroesBlack));
+        heroesBlack.forEach(n -> System.out.println(n.toString()));
+
+//        heroesBlack.forEach(n -> n.printEnemyDistance(heroesWhite));
+        heroesBlack.forEach(n -> n.step(heroesBlack, heroesWhite));
+        heroesWhite.forEach(n -> n.step(heroesWhite, heroesBlack));
 
         for(Hero h: heroOrder) {
             if (heroesBlack.contains(h)) {
-                h.step(heroesWhite);
+                h.step(heroesBlack, heroesWhite);
             }
-            else h.step(heroesBlack);
+            else h.step(heroesWhite, heroesBlack);
         }
 
 
