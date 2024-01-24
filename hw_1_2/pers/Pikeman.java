@@ -1,11 +1,11 @@
-package oop.hw_1.pers;
+package oop.hw_1_2.pers;
 
-import oop.hw_1.Roles.Melee;
+import oop.hw_1_2.Roles.Melee;
 
 public class Pikeman extends Melee {
 
     public Pikeman(String nameHero, int posX, int posY) {
-        super(100, 100, 5, new int[]{20, 30}, nameHero, posX, posY);
+        super(100, 100, 5, new int[]{20, 30}, nameHero, posX, posY, 1);
 //        rangeMaxDamage = 4;
     }
 

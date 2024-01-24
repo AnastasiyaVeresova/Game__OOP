@@ -1,10 +1,10 @@
-package oop.hw_1.pers;
+package oop.hw_1_2.pers;
 
-import oop.hw_1.Roles.Magee;
+import oop.hw_1_2.Roles.Magee;
 
 public class Monk extends Magee {
     public Monk(String nameHero, int posX, int posY) {
-        super(50, 50, 1, new int[]{-35, -30}, nameHero, posX, posY);
+        super(50, 50, 1, new int[]{-35, -30}, nameHero, posX, posY, 50, 50);
 //        rangeMaxDamage = 4;
     }
 

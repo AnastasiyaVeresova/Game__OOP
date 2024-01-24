@@ -2,8 +2,10 @@ package oop.hw_1.Roles;
 
 import oop.hw_1.Hero;
 
+import java.util.Random;
+
 abstract public class Magee extends Hero {
-//    static private Random rand = new Random();
+    static private Random rand = new Random();
 
 
     public Magee(int health, int healthMax, int armor, int[] damage, String nameHero, int posX, int posY) {
@@ -12,7 +14,7 @@ abstract public class Magee extends Hero {
     }
     @Override
     public String getTape() {
-        return "Magee";
+        return "Маги";
     }
 
     @Override
@@ -24,6 +26,10 @@ abstract public class Magee extends Hero {
     public boolean shoot(Hero other) {
         return false;
     }
+
+
+
+
 
 
 }

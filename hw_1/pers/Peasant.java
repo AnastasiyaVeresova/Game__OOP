@@ -29,6 +29,11 @@ public class Peasant extends Hero {
         return false;
     }
 
+    @Override
+    public String getInfo() {
+        return "Peasant";
+    }
+
 
     @Override
     public String getTape() {

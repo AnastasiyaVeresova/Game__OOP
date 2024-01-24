@@ -1,23 +1,27 @@
-package oop.hw_1;
+package oop.hw_1_2;
+
+import oop.hw_1_2.Roles.Archer;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public abstract class Hero {
-    protected int health, healthMax, armor, initiative;
-    protected Vector2 position;
+    public int health, healthMax, armor, initiative;
+    public Random random = new Random();
+    public Vector2 position;
+    public int[] damage;
+    public String nameHero;
 
-    protected int[] damage;
-    protected String nameHero;
 
-
-    public Hero(int health, int healthMax, int armor, int[] damage, String nameHero, int posX, int posY) {
+    public Hero(int health, int healthMax, int armor, int[] damage, String nameHero, int posX, int posY, int initiative) {
         this.health = health;
         this.healthMax = healthMax;
         this.armor = armor;
         this.damage = damage;
         this.nameHero = nameHero;
         this.position = new Vector2(posX, posY);
+        this.initiative = initiative;
     }
 
     public Vector2 getLocation() {
@@ -28,7 +32,7 @@ public abstract class Hero {
         System.out.print(nameHero + ": ");
         enemys.forEach(n -> System.out.print(position.rangeEnemy(n.position) + ", "));
 
-//        System.out.println();
+        System.out.println();
 //        System.out.println("Ближайший противник: " + nearestEnemy(enemys) + ", на расстоянии: " + minDistance(enemys));
 
     }
@@ -80,30 +84,20 @@ public abstract class Hero {
         return this.nameHero;
     }
 
-    public int[] getCoords() {
-        return new int[]{position.posX, position.posY};
-    }
-
-
     protected abstract boolean shoot();
 
-    public abstract String getTape();
+    public abstract String getType();
 
     public void receiveDamage(int damage) {
         this.health -= (damage - this.armor);
         if (this.health < 1) {
-            die();
+//        System.out.println(this.nameHero + " is dead.");
+            this.health = 0;
         }
     }
 
-    public void die() {
-//        System.out.println(this.nameHero + " is dead.");
-        this.position.posX = -11;
-        this.position.posY = -11;
-    }
-
     public boolean isDead() {
-        return this.health == 0;
+        return health < 1;
     }
 
 
@@ -113,13 +107,39 @@ public abstract class Hero {
 
     public abstract boolean shoot(Hero other);
 
+
+    public void giveArrows(Archer hero) {
+
+    }
+
+
     public void step(ArrayList<Hero> allies, ArrayList<Hero> enemys) {
 //        System.out.println("Not Implemented");
+        }
+
+    public int[] getCoords() {
+        return new int[]{position.posX, position.posY};
     }
+
+
     public abstract String getInfo();
 
 
     public int getHp() {
-        return this.health;
+        return health;
     }
+
+    public void getHeal (int mana) {
+        this.health += mana;
+        if (this.health < this.healthMax)
+            this.health = this.healthMax;
+    }
+
+    public boolean isInjured() {
+        return this.health >= 1 && this.health < this.healthMax;
+    }
+
+
+
+
 }

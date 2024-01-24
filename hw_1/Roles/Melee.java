@@ -49,8 +49,11 @@ abstract public class Melee extends Hero implements Hit, Step {
         return false;
     }
 
+
     @Override
     public String getTape() {
-        return "Melee";
+        return "Пехота";
     }
+
+
 }

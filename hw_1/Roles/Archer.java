@@ -8,7 +8,7 @@ import java.util.Random;
 
 abstract public class Archer extends Hero{
     static private Random rand = new Random();
-    private int maxArrows = 50;
+    protected int maxArrows = 70;
 
     public Archer(int health, int healthMax, int armor, int[] damage, String nameHero, int posX, int posY) {
         super(health, healthMax, armor, damage, nameHero, posX, posY);
@@ -17,28 +17,24 @@ abstract public class Archer extends Hero{
 
     @Override
     public boolean shoot(Hero other) {
-        if( this.maxArrows >= 3){
+        if( this.maxArrows >= 10){
             other.receiveDamage(rand.nextInt(damage[0],damage[1]));
-            this.maxArrows -= 1;
+            this.maxArrows -= 10;
             return true;
         }
-        System.out.println("Out of Ammo");
         return false;
 
     }
 
     @Override
     protected boolean shoot() {
-        return false;
+        return true;
     }
 
     public void receiveArrows(int amount){
         this.maxArrows += amount;
     }
 
-    public int getAArrows(){
-        return maxArrows;
-    }
 
 
     @Override
@@ -53,12 +49,21 @@ abstract public class Archer extends Hero{
     }
     @Override
     public String toString() {
-        return super.toString() + "; Arrows: " + (Integer)(getAArrows()/10);
+        return super.toString() + "; стрелы: " + (Integer)(getArrows()/10);
     }
 
 
     @Override
     public String getTape() {
-        return "Archer";
+        return "Лучник";
+    }
+
+//    @Override
+//    public int getHp() {
+//        return super.getHp();
+//    }
+
+    public int getArrows() {
+        return maxArrows;
     }
 }
