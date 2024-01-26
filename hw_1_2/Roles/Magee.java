@@ -55,7 +55,7 @@ abstract public class Magee extends Hero {
         return heroTMP;
     }
 
-    public void getHealing(oop.hw_3.Hero target) {
+    public void getHealing(Hero target) {
         manaCost = 10;
         if (this.mana >= manaCost) {
             if (target.health > 0 && target.health < target.healthMax) {
@@ -86,7 +86,7 @@ abstract public class Magee extends Hero {
 
     @Override
     public void step(ArrayList<Hero> allies, ArrayList<Hero> enemys){
-        if(this.health < 1) return;
+        if(isDead()) return;
         getResp(allies, enemys);
         if (!flagRes){
             heal(findMinHealthAllies(allies));
@@ -112,8 +112,4 @@ abstract public class Magee extends Hero {
             this.mana -= manaCost;
         }
     }
-
-
-
-
 }

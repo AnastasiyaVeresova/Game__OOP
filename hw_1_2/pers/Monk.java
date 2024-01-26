@@ -8,12 +8,8 @@ public class Monk extends Magee {
 //        rangeMaxDamage = 4;
     }
 
-//    protected  int rangeMaxDamage;
-//    protected Vector2 position;
-
     @Override
     public String toString() {
-//        return ("Монах: " + nameHero + ", здоровье: " + health + "/" + healthMax + ", броня: " + armor);
         return ("Монах: " + super.toString());
     }
 
@@ -21,8 +17,4 @@ public class Monk extends Magee {
     public String getInfo() {
         return "Монах";
     }
-
-
-
-
 }

@@ -8,6 +8,7 @@ import java.util.Random;
 
 public class Peasant extends Hero {
     static  private Random rand = new Random();
+
     public Peasant(String nameHero, int posX, int posY) {
         super(100, 100, 0, new int[]{0, 0}, nameHero, posX, posY,0);
 
@@ -22,8 +23,6 @@ public class Peasant extends Hero {
         }
     }
 
-//    protected  int rangeMaxDamage;
-//    protected Vector2 position;
 
     @Override
     public String toString() {
@@ -82,22 +81,4 @@ public class Peasant extends Hero {
         getArrow(findMoreEmptyRDD(allies));
 
     }
-
-
-//    @Override
-//    public void step(ArrayList<Hero> allies, ArrayList<Hero> enemys) {
-//        if(isDead()) return;
-//        Archer hero = null;
-//        int minArrows = Integer.MAX_VALUE;
-//        for(Hero h: allies) {
-//            if (h.isDead()) continue;
-//            if (((Archer)(h)).getArrows() < minArrows) {
-//                hero = (Archer) h;
-//                minArrows = hero.getArrows();
-//            }
-//        }
-//        if (hero != null) giveArrows(hero);
-//    }
-
-
 }

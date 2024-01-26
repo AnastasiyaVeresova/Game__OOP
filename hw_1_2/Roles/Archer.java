@@ -78,8 +78,6 @@ abstract public class Archer extends Hero{
         quantityShots--;
     }
 
-
-
     @Override
     public String toString() {
         return super.toString() + "; стрелы: " + (Integer)(getArrows()/10);
@@ -90,8 +88,6 @@ abstract public class Archer extends Hero{
     public String getType() {
         return "Лучник";
     }
-
-
 
     public int getArrows() {
         return maxArrows;

@@ -9,7 +9,6 @@ public class Pikeman extends Melee {
 //        rangeMaxDamage = 4;
     }
 
-
     @Override
     public String toString() {
 //        return ("Копейщик: " + nameHero + ", здоровье: " + health + "/" + healthMax + ", броня: " + armor);

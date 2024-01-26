@@ -5,12 +5,7 @@ import oop.hw_1_2.Roles.Magee;
 public class Wizard extends Magee {
     public Wizard(String nameHero, int posX, int posY) {
         super(50, 50, 1, new int[]{15, 29}, nameHero, posX, posY, 50, 50);
-//        rangeMaxDamage = 4;
     }
-
-//    protected  int rangeMaxDamage;
-//    protected Vector2 position;
-
 
     @Override
     public String toString() {
@@ -21,8 +16,4 @@ public class Wizard extends Magee {
     public String getInfo() {
         return "Колдун";
     }
-
-
-
-
 }

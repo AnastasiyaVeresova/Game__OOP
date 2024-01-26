@@ -8,24 +8,16 @@ public class Sniper extends Archer {
         angryRDD = new Rogue(this.nameHero, this.position.posX, this.position.posY);
         angryRDD.position = this.position;
         angryRDD.damage = new int[] {9, 10};
-//        rangeMaxDamage = 4;
     }
-
-//    protected  int rangeMaxDamage;
-//    protected Vector2 position;
 
 
     @Override
     public String toString() {
-//        return ("Снайпер: " + nameHero + ", здоровье: " + health + "/" + healthMax + ", броня: " + armor);
         return ("Снайпер: " + super.toString());
     }
     @Override
     public String getInfo() {
         return "Снайпер";
     }
-
-
-
 
 }

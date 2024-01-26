@@ -39,7 +39,7 @@ abstract public class Melee extends Hero{
 
     @Override
     public void step(ArrayList<Hero> allies, ArrayList<Hero> enemys) {
-        if(this.health < 1) return;
+        if(isDead()) return;
         Hero tmpHero = findBestEnemyMDD(enemys);
         if (position.rangeEnemy(tmpHero.position) < 2) {
             getDamage(tmpHero);
@@ -53,7 +53,6 @@ abstract public class Melee extends Hero{
             if (step) position = tmpVec;
         }
     }
-
         public Vector2 getStepMDD(Hero enemy) {
             Vector2 delta = position.getDelta(enemy.position); //return new Vector2(posX - posEnemy.posX, posY - posEnemy.posY);
             Vector2 tmpVector2 = new Vector2(position.posX, position.posY);
@@ -93,6 +92,5 @@ abstract public class Melee extends Hero{
     public String getType() {
         return "Пехота";
     }
-
 
 }

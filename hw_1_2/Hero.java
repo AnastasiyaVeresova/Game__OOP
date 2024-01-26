@@ -1,12 +1,13 @@
 package oop.hw_1_2;
 
+import oop.hw_1_2.Interfaces.Step;
 import oop.hw_1_2.Roles.Archer;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-public abstract class Hero {
+public abstract class Hero implements Step {
     public int health, healthMax, armor, initiative;
     public Random random = new Random();
     public Vector2 position;
@@ -46,18 +47,6 @@ public abstract class Hero {
         }
         return minDist;
     }
-
-//    public Hero nearestEnemy(ArrayList<Hero> enemys) {
-//        float minDistance = this.position.rangeEnemy(enemys.get(0).getLocation());
-//        Hero hero = enemys.get(0);
-//        for (int i = 0; i < enemys.size(); i++) {
-//            if (this.position.rangeEnemy(enemys.get(i).position) < this.position.rangeEnemy(hero.position)) {
-//                hero = enemys.get(i);
-//            }
-//        }
-//        return hero;
-//    }
-
 
     public Hero nearestEnemy(ArrayList<Hero> enemys) {
         float minDistance = this.position.rangeEnemy(enemys.get(0).getLocation());
@@ -108,14 +97,12 @@ public abstract class Hero {
     public abstract boolean shoot(Hero other);
 
 
-    public void giveArrows(Archer hero) {
-
-    }
+    public void giveArrows(Archer hero){
 
 
-    public void step(ArrayList<Hero> allies, ArrayList<Hero> enemys) {
-//        System.out.println("Not Implemented");
-        }
+    };
+
+
 
     public int[] getCoords() {
         return new int[]{position.posX, position.posY};
